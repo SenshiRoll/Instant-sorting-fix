@@ -8,7 +8,6 @@ import org.spongepowered.asm.mixin.Mixin;
 //import org.spongepowered.asm.mixin.Overwrite;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(HopperBlockEntity.class)
@@ -22,10 +21,6 @@ public abstract class InstantSortingHopperFix extends LootableContainerBlockEnti
 		if (!this.world.isClient){
 			System.out.println("<"+this.world.getTime()+">  ["+this.pos.getX()+","+this.pos.getY()+","+this.pos.getZ()+"]");
 		}//
-	}
-	@Inject(at=@At("HEAD"),method="tick")
-	private void tickLog(CallbackInfo info){
-		//there are four fire trucks here
 	}
 	//@Overwrite       //so I can see a hopper tick
 	/*public void tick() {
