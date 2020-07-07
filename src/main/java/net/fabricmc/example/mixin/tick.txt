@@ -9,7 +9,7 @@ public class tick {
       profiler.swap("weather");
       boolean bl = this.isRaining();
       if (this.getDimension().hasSkyLight()) {
-         if (this.getGameRules().getBoolean(GameRules.DO_WEATHER_CYCLE)) {
+         if (this.getGameRules().getBoolean(GameRules.DO_WEATHER_CYCLE)) {    //weather
             int i = this.field_24456.getClearWeatherTime();
             int j = this.field_24456.getThunderTime();
             int k = this.field_24456.getRainTime();
@@ -88,7 +88,7 @@ public class tick {
            this.server.getPlayerManager().sendToAll(new GameStateChangeS2CPacket(GameStateChangeS2CPacket.THUNDER_GRADIENT_CHANGED, this.thunderGradient));
         }
   
-        if (this.allPlayersSleeping && this.players.stream().noneMatch((serverPlayerEntity) -> {
+        if (this.allPlayersSleeping && this.players.stream().noneMatch((serverPlayerEntity) -> {  //player sleep
            return !serverPlayerEntity.isSpectator() && !serverPlayerEntity.isSleepingLongEnough();
         })) {
            this.allPlayersSleeping = false;
