@@ -25,7 +25,7 @@ public abstract class InstantSortingHopperFix extends LootableContainerBlockEnti
 		super(blockEntityType);
 	}
 
-	@Inject(at = @At("RETURN"), method = "insert", cancellable = true)
+	@Inject(at = @At("HEAD"), method = "insert", cancellable = true)
 	private void insertLog(CallbackInfoReturnable<Boolean> info) {
 		if (!this.world.isClient && this.transferCooldown==8){
 			System.out.println("I:  <"+this.world.getTime()+">  ["+this.pos.getX()+","+this.pos.getY()+","+this.pos.getZ()+"]");
