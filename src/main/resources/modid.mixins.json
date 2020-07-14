@@ -4,7 +4,8 @@
   "package": "net.fabricmc.example.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "InstantSortingHopperFix"
+    "HopperMapLog",
+    "HopperFix"
   ],
   "injectors": {
     "defaultRequire": 1
