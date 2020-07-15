@@ -30,9 +30,9 @@ import net.minecraft.block.entity.BlockEntity;
 @Mixin(WorldChunk.class)
 public abstract class HopperFix implements Chunk{
 	@Shadow
-	private final Map<BlockPos, BlockEntity> blockEntities=null;
+	private final Map<BlockPos, BlockEntity> blockEntities;
 
-	@Inject(method="WorldChunk", at=@At(value="INVOKE", target = "Maps.newHashMap", ordinal = 1), cancellable=false)
+	@Inject(method="init", at=@At(value="INVOKE", target = "Maps.newHashMap", ordinal = 1), cancellable=false)
 	private void HopperOrderFix(World world, ChunkPos pos, BiomeArray biomes, UpgradeData upgradeData, TickScheduler<Block> blockTickScheduler, TickScheduler<Fluid> fluidTickScheduler, long inhabitedTime, @Nullable ChunkSection[] sections, @Nullable Consumer<WorldChunk> loadToWorldConsumer){
 		this.blockEntities=Maps.newLinkedHashMap();
 	}
