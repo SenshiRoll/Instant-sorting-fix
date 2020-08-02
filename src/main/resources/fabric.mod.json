@@ -3,8 +3,8 @@
   "id": "modid",
   "version": "${version}",
 
-  "name": "Hopper Fix",
-  "description": "give hopeprs a predictable update order",
+  "name": "BlockPos mapper",
+  "description": "Mod and scarpet extension to log the bin number of BlockPos",
   "authors": [
     "Senshi"
   ],
