@@ -22,6 +22,9 @@ import net.minecraft.world.chunk.ChunkManager;
 import net.minecraft.world.dimension.Dimension;
 import net.minecraft.world.dimension.DimensionType;
 import net.minecraft.world.level.LevelProperties;
+import net.minecraft.world.*;
+
+import carpet.script.utils.ShapesRenderer;
 
 @Mixin(ServerWorld.class)
 public abstract class HopperMapLog extends World {
@@ -30,6 +33,9 @@ public abstract class HopperMapLog extends World {
     }
     @Inject(method="tick", at= @At("HEAD"), cancellable=false)
     private void mapper(CallbackInfo info){
+    	ShapesRenderer map=new ShapesRenderer();
+    	map.addShapes(something);
+    	map.render(client camera, 1.0f);
 
     }
     @Mixin(HashMap.class)
@@ -42,7 +48,7 @@ public abstract class HopperMapLog extends World {
 
          /**
          * Copypasta'd straight from HashMap
-         * 
+         * <p> Nothing special about it
          * 
          */
         static class Node<K,V> implements Map.Entry<K,V> {
